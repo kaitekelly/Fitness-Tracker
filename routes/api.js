@@ -1,31 +1,31 @@
 const router = require("express").Router();
-const Exercise = require("../models/exercise.js");
+const Workout = require("../models/exercise.js");
 
-router.post("/api/exercise", ({body}, res) =>{
-    Exercise.create(body)
-    .then(dbExercise => {
-        res.json(dbExercise);
+router.post("/api/workout", ({body}, res) =>{
+    Workout.create(body)
+    .then(dbWorkout => {
+        res.json(dbWorkout);
     })
     .catch(err => {
         res.status(400).json(err);
     });
 });
 
-router.post("/api/exercise/bulk", ({ body }, res) => {
-    Exercise.insertMany(body)
-    .then(dbExercise => {
-        res.json(dbExercise);
+router.post("/api/workout/bulk", ({ body }, res) => {
+    Workout.insertMany(body)
+    .then(dbWorkout => {
+        res.json(dbWorkout);
     })
     .catch(err => {
         res.status(400).json(err);
     });
 });
 
-router.get("/api/exercise", (req, res) => {
-    Exercise.find({})
+router.get("/api/workout", (req, res) => {
+    Workout.find({})
     .sort({ date: -1})
-    .then(dbExercise => {
-        res.json(dbExercise);
+    .then(dbWorkout => {
+        res.json(dbWorkout);
     })
     .catch(err => {
         res.status(400).json(err);
