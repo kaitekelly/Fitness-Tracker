@@ -3,7 +3,7 @@ const Workout = require("../models/exercise.js");
 module.exports = function (app) {
 
     // add find app.post
-    app.post("/api/workouts", (req, res) => {
+    app.get("/api/workouts", (req, res) => {
         Workout.find({})
         .then(dbWorkout => {
             console.log(dbWorkout);
@@ -17,6 +17,7 @@ module.exports = function (app) {
     app.post("/api/workouts", (req, res) => {
         Workout.create({})
             .then(dbWorkout => {
+                console.log(dbWorkout);
                 res.json(dbWorkout);
             })
             .catch(err => {
@@ -24,10 +25,9 @@ module.exports = function (app) {
             });
     });
 
-    app.post("/api/workouts/bulk", ({
-        body
-    }, res) => {
-        Workout.insertMany(body)
+    //update to find by ID here
+    app.put("/api/workouts/:id", (req, res) => {
+        Workout.findByIdAndUpdate(req.params.id, {$push: { exercises: req.body} })
             .then(dbWorkout => {
                 res.json(dbWorkout);
             })
@@ -36,11 +36,8 @@ module.exports = function (app) {
             });
     });
 
-    app.get("/api/workouts", (req, res) => {
+    app.get("/api/workouts/range", (req, res) => {
         Workout.find({})
-            .sort({
-                date: -1
-            })
             .then(dbWorkout => {
                 res.json(dbWorkout);
             })
@@ -48,4 +45,8 @@ module.exports = function (app) {
                 res.status(400).json(err);
             });
     });
+
+    // app.delete("/api/workouts/:id", (req, res) => {
+    //     Workout.findByIdAndDelete({req.params.id})
+    // })
 };
