@@ -1,7 +1,8 @@
-const app = require("express").app();
 const Workout = require("../models/exercise.js");
 
-app.post("/api/exercise", ({body}, res) =>{
+module.exports = function(app) {
+
+app.post("/api/workouts", ({body}, res) =>{
     Workout.create(body)
     .then(dbWorkout => {
         res.json(dbWorkout);
@@ -11,7 +12,7 @@ app.post("/api/exercise", ({body}, res) =>{
     });
 });
 
-app.post("/api/exercise/bulk", ({ body }, res) => {
+app.post("/api/workouts/bulk", ({ body }, res) => {
     Workout.insertMany(body)
     .then(dbWorkout => {
         res.json(dbWorkout);
@@ -21,7 +22,7 @@ app.post("/api/exercise/bulk", ({ body }, res) => {
     });
 });
 
-app.get("/api/exercise", (req, res) => {
+app.get("/api/workouts", (req, res) => {
     Workout.find({})
     .sort({ date: -1})
     .then(dbWorkout => {
@@ -31,5 +32,5 @@ app.get("/api/exercise", (req, res) => {
         res.status(400).json(err);
     });
 });
+};
 
-module.exports = app;
