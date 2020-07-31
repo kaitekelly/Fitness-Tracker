@@ -1,12 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const compression = require('compression');
+const logger = require("morgan");
 
 const PORT = process.env.PORT || 4000;
 
 const app = express();
-
-app.use(compression());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,8 +16,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useFindAndModify: false
 });
 
-// routes - what should we call this route?
-app.use(require("./routes/api.js"));
+require("./routes/api.js")(app);
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
