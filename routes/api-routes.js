@@ -46,7 +46,4 @@ module.exports = function (app) {
             });
     });
 
-    // app.delete("/api/workouts/:id", (req, res) => {
-    //     Workout.findByIdAndDelete({req.params.id})
-    // })
 };
