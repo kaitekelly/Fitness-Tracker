@@ -9,8 +9,8 @@ kaitekelly 👩🏻‍💻
 # Title:
 Fitness Tracker
 
-# Link to Deployed Site:
-https://kaitekelly.github.io/Fitness-Tracker/
+<!-- # Link to Deployed Site:
+https://kaitekelly.github.io/Fitness-Tracker/ -->
 
 
 # Link to Repo:
