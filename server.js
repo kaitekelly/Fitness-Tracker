@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
+// let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
