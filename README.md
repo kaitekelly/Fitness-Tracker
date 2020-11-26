@@ -23,18 +23,14 @@ https://murmuring-gorge-18755.herokuapp.com/?id=5f34d98b60ee330017a45f74
 💾 In the command line of the working directory, install the following NPM packages: NPM install, express, compression, mongod, mongoose, morgan, nodemon.
 
 # Usage: 
-Access the fitness tracker website to log and track daily workouts. 
-
-
+Access this fitness tracker application to log and track daily workouts. 
 
 # Screenshot of application in use:
 ![Screen Shot 2020-08-02 at 2 05 11 PM](https://user-images.githubusercontent.com/61023907/89132539-c8c39f80-d4c9-11ea-9cfe-8cd97d3e1cbd.png)
 ![Screen Shot 2020-08-02 at 2 07 38 PM](https://user-images.githubusercontent.com/61023907/89132542-cd885380-d4c9-11ea-9e96-d20bc1034db4.png)
 
-
-
 # Contributions: 
-Contributor, Kait Kelly. View github profile through badge above. 
+Contributor, Kaite Kelly. View github profile through badge above. 
 Technology used: Node.js, NPM's(express), HTML, Javascript, CSS, 
 
 # Tests: 
